@@ -1,0 +1,253 @@
+
+<script>
+    var code_show=true; //true -> hide code at first
+
+    function code_toggle() {
+        $('div.prompt').hide(); // always hide prompt
+
+        if (code_show){
+            $('div.input').hide();
+        } else {
+            $('div.input').show();
+        }
+        code_show = !code_show
+    }
+    $( document ).ready(code_toggle);
+</script>
+
+
+```python
+def load_data(file, ids):
+    with open(file, 'r') as f:
+        data = f.read().split('\n')
+    if len(ids) == 2 and ids[0] < ids[1]:
+        return data[ids[0]:ids[1]]
+    else:
+        #return [data.split('\n')[i] for i in ids]
+        return [e for i, e in enumerate(data) if i in ids]
+width = 80
+
+begin = 100
+num_sent = 50
+ids = [begin, begin+num_sent]
+source = load_data('./data/test.src', ids)
+target = load_data('./data/test.trg', ids)
+decode = load_data('./data/large_test_120000.de', ids)
+
+#for i in range(num_sent-10):
+#    print(source[i].replace('@@', ''))
+
+
+for i in range(len(source)):
+    print('Source {}: {}'.format(begin+i, source[i].replace('@@ ', '')))
+    print('Translate: {}'.format(decode[i].replace('@@ ', '').replace(' ', '')))
+    print('Reference: {}'.format(target[i].replace('@@ ', '').replace(' ', '')))
+    print('-'*width)
+```
+
+    Source 100: requiring the directors and senior management to correct their behaviors which are harmful to the interests of the company .
+    Translate: 要求董事及高級管理層糾正損害公司利益的行為。
+    Reference: 要求董事及高級管理層糾正其有損本公司利益的行為。
+    --------------------------------------------------------------------------------
+    Source 101: the group will apply this standard for the financial reporting period commencing on 1 january 2013 .
+    Translate: 貴集團將於二零一三年一月一日開始之財務呈報期間應用該準則。
+    Reference: 本集團將自2013年1月1日起的財務報告期間採納該準則。
+    --------------------------------------------------------------------------------
+    Source 102: the notice must specify the time and place of the meeting and , in the case of special business , the general nature of that business .
+    Translate: 通告須註明舉行會議的時間及地點，倘有特別事項，則須註明有關事項的一般性質。
+    Reference: 通告須註明舉行會議之時間及地點，倘有特別事項，則須註明有關事項之一般性質。
+    --------------------------------------------------------------------------------
+    Source 103: in term of plywood quality , many downstream purchasers prefer to buy imported plywood for its high quality .
+    Translate: 於膠合板品質方面，眾多下游買家偏好為進口優質膠合板的進口膠合板。
+    Reference: 就膠合板品質而言，很多下游購買者偏好購買質素高的進口膠合板。
+    --------------------------------------------------------------------------------
+    Source 104: our chief executive officer is responsible for formulating and implementing the marketing strategies of our group .
+    Translate: 我們的行政總裁負責制定及實施本集團的營銷策略。
+    Reference: 我們的行政總裁負責制定及實施本集團的市場推廣策略。
+    --------------------------------------------------------------------------------
+    Source 105: 03 of the gem listing rules in respect of our financial results for the first full year commencing after the listing date .
+    Translate: 03條有關上市日期後開始的首個完整年度的財務業績當日止。
+    Reference: 03條就上市日期後開始之首個完整年度的財務業績的日期止。
+    --------------------------------------------------------------------------------
+    Source 106: the subscription of the hong kong offer shares by giving electronic application instructions to hkscc is only a facility provided to ccass participants .
+    Translate: 透過向香港結算發出電子認購指示認購香港發售股份僅為一項提供予中央結算系統參與者的服務。
+    Reference: 透過向香港結算發出電子認購指示認購香港發售股份僅為一項提供予中央結算系統參與者的服務。
+    --------------------------------------------------------------------------------
+    Source 107: our directors confirmed that we are not required to pay for any fee for the preferential promotion / display arrangement under the relevant consignment agreements with distributors a and b .
+    Translate: 董事確認，根據與分銷商A及B。
+    Reference: 董事確認我們毋須就與分銷商A及B訂立相關寄售協議項下優先宣傳╱展示安排支付任何費用。
+    --------------------------------------------------------------------------------
+    Source 108: the company was incorporated in the cayman islands as an exempted company with limited liability on 4 january 2011 under the cayman companies law .
+    Translate: 本公司於二零一一年一月四日根據開曼群島公司法在開曼群島註冊成立為獲豁免有限公司。
+    Reference: 本公司於2011年1月4日根據開曼群島公司法在開曼群島註冊成立為獲豁免有限公司。
+    --------------------------------------------------------------------------------
+    Source 109: the indemnity referred to above shall be extended to cover .
+    Translate: 上述彌償保證將延長至涵蓋。
+    Reference: 上述彌償保證將擴至涵蓋。
+    --------------------------------------------------------------------------------
+    Source 110: it has developed a number of well-known brands such as &quot; smiffys &quot; and &quot; fever &quot; over the years .
+    Translate: 其已在多年來開發一系列知名品牌「SMFEs」及「ENEver」等知名品牌。
+    Reference: 多年來已發展多個知名品牌，如「Smiffys」及「Fever」。
+    --------------------------------------------------------------------------------
+    Source 111: a considerable amount of estimation is required in assessing the ultimate realisation of these receivables , including the current creditworthiness and the past collection history of each debtor .
+    Translate: 於評估該等應收款項的最終變現時，須作出大量估計。
+    Reference: 於評估該等應收款項的最終變現數額時須作出大量估計，包括各債務人現時的信譽及過往收回歷史。
+    --------------------------------------------------------------------------------
+    Source 112: the directors confirm that since 30 june 2009 , there has been no material adverse change in the financial or trading position or prospects of the group .
+    Translate: 董事確認，自二零零九年六月三十日以來，本集團的財務或經營狀況或前景並無重大不利變動。
+    Reference: 董事確認，自二零零九年六月三十日起，本集團的財政或貿易狀況或前景並無重大不利變動。
+    --------------------------------------------------------------------------------
+    Source 113: the board may issue debentures , debenture stock , bonds and other securities , whether outright or as collateral security for any debt , liability or obligation of the company or of any third party .
+    Translate: 董事會可發行公司債權證、債券、債券及其他證券，以及作為本公司或任何第三方的任何債項、負債或責任的擔保。
+    Reference: 董事會可發行債權證、債股、債券及其他證券。
+    --------------------------------------------------------------------------------
+    Source 114: the option-holder may exercise all his options within a period of three months of the date of the notification by the board .
+    Translate: 購股權持有人可於董事會發出通知日期後三個月期間內悉數行使其購股權。
+    Reference: 購股權持有人可於董事會發出通知日期後三個月內悉數行使其購股權。
+    --------------------------------------------------------------------------------
+    Source 115: black &amp; veatch primarily serves the energy , water , environmental , and information technology sectors .
+    Translate: 博威主要為能源、水、環境及資訊科技行業。
+    Reference: 博威主要服務能源、水務、環境及資訊科技行業。
+    --------------------------------------------------------------------------------
+    Source 116: the principal business of that company is dealing in securities .
+    Translate: 該公司主要從事證券買賣業務。
+    Reference: 該公司的主要業務為證券買賣。
+    --------------------------------------------------------------------------------
+    Source 117: 3 % , while dicos chain has grown from 246 in 2002 to 600 in 2006 with a cagr of approximately 25 % .
+    Translate: 3%增長，而博德連鎖自二零零二年至600間增長，複合年增長率約為25%。
+    Reference: 3%，而德克士連鎖店已從二零零二年的246家增加至二零零六年的600家，複合年增長率約為25%。
+    --------------------------------------------------------------------------------
+    Source 118: under the prc company law , the board of directors exercises the following powers .
+    Translate: 根據中國公司法，董事會行使下列職權。
+    Reference: 根據《中國公司法》，董事會行使下列職權。
+    --------------------------------------------------------------------------------
+    Source 119: 1 million for the year ended december 31 , 2009 to rmb50 .
+    Translate: 8%至截至二零一零年十二月三十一日止年度的人民幣50。
+    Reference: 2百萬元至截至二零一零年十二月三十一日止年度的人民幣50。
+    --------------------------------------------------------------------------------
+    Source 120: the continuing compliance of any such terms and conditions that may be attached to the grant of the option , failing which the option will lapse unless otherwise resolved to the contrary by the board .
+    Translate: 持續遵守授出購股權可能附帶的任何有關條款及條件，倘未能符合授出購股權，則購股權將告失效。
+    Reference: 持續遵守授出購股權可能附帶之任何有關條款及條件，倘未能持續遵守該等條款及條件，除非董事會議決授出豁免，否則購股權將告失效。
+    --------------------------------------------------------------------------------
+    Source 121: none of the directors nor any of the parties listed in paragraph 21 below is materially interested in any contract or arrangement subsisting at the date of this prospectus which is significant in relation to business of our group taken as a whole .
+    Translate: 各董事或下文第21段所列的任何人士概無於本招股章程日期仍然有效且對本集團整體業務而言屬重大的任何合約或安排中擁有重大權益。
+    Reference: 各董事或下文第21段所列的任何各方概無於本招股章程日期仍然存續，且就本集團整體業務而言屬重大的任何合約或安排中擁有重大權益。
+    --------------------------------------------------------------------------------
+    Source 122: goodwill was allocated to this business based on its fair value relative to the estimated fair value of our domestic hog production reporting unit .
+    Translate: 商譽乃根據其與我們的國內生豬養殖呈報單位的估計公允價值有關的公允價值分配至該業務。
+    Reference: 商譽乃根據其與我們的國內生豬養殖呈報單位的估計公允價值有關的公允價值分配至該業務。
+    --------------------------------------------------------------------------------
+    Source 123: regulations , in the event that such laws , rules and regulations become more stringent or wide in scope , we may fail to comply .
+    Translate: 倘有關法律、規則及法規變得更為嚴格或廣泛，我們可能無法遵守。
+    Reference: 規，惟若此等法律、規則及法規變得更為嚴格或涵蓋的範圍更廣，我們可能未能遵守。
+    --------------------------------------------------------------------------------
+    Source 124: a party may terminate the agreement if it or the other party becomes incapable of performing its or their obligations for a consecutive period of more than 30 days due to bankruptcy or other material deterioration in its business operations .
+    Translate: 倘一方或另一方連續於其業務經營中不能履行其於30天內的破產或其他重大事務，則其可終止協議。
+    Reference: 倘協議一方因其或另一方破產或業務營運的其他嚴重惡化情況令其連續30天以上不能履行義務，則可終止協議。
+    --------------------------------------------------------------------------------
+    Source 125: investors who trade shares on the basis of publicly available allocation details prior to the receipt of share certificates or prior to the share certificates becoming valid certificates of title do so entirely at their own risk .
+    Translate: 收到股票前或於股票成為有效所有權憑證前按公開可得分配詳情買賣股份的投資者，須自行承擔全部風險。
+    Reference: 收到股票或股票成為所有權有效憑證前基於公佈分配詳情而買賣股份之投資者須承擔一切風險。
+    --------------------------------------------------------------------------------
+    Source 126: 47 , and the annual review requirements set out in rules 14a .
+    Translate: 47條所載申報及公告的規定、第14A。
+    Reference: 47條所載申報及公告的規定、第14A。
+    --------------------------------------------------------------------------------
+    Source 127: the facility agreement provided mfw investment with a maximum amount of mop103 million to draw down in multiple tranches , according to its needs .
+    Translate: 根據其需要，融資協議向澳門漁人碼頭投資提供最高金額103百萬澳門幣的澳門漁人碼頭投資。
+    Reference: 該融資協議提供澳門漁人碼頭投資一筆最多為103,000,000澳門幣的款項，並根據其需要分多批提取。
+    --------------------------------------------------------------------------------
+    Source 128: yuzhou cement is a wholly-owned subsidiary of the company .
+    Translate: 禹州水泥為貴公司的全資附屬公司。
+    Reference: 禹州水泥為貴公司的全資附屬公司。
+    --------------------------------------------------------------------------------
+    Source 129: in such eventuality , all application monies will be returned , without interest , on the terms set out in the section headed &quot; further terms and conditions of the hong kong public offering - 8 .
+    Translate: 在此情況下，所有申請股款將按「香港公開發售的其他條款及條件－8。
+    Reference: 在此情況下，所有申請款項將根據本招股章程「香港公開發售之其他條款和條件-8。
+    --------------------------------------------------------------------------------
+    Source 130: we will continue our eåorts to reduce our raw material and coal costs through bulk purchases and leveraging our economies of scale to increase our bargaining power over suppliers .
+    Translate: 我們將繼續透過批量採購及充分利用我們的規模經濟來降低原材料及煤炭成本。
+    Reference: 本集團將通過大批量採購和充分利用本集團的規模經濟效益來增強本集團與供應商的議價能力，繼續努力降低本集團的原材料和煤炭成本。
+    --------------------------------------------------------------------------------
+    Source 131: the predecessor group also competes against independent owners or operators of local 5-star hotels .
+    Translate: 前身集團亦對當地五星級酒店的獨立擁有人或營運商競爭。
+    Reference: 前身集團亦面對地方五星級酒店獨立擁有人或運營商的競爭。
+    --------------------------------------------------------------------------------
+    Source 132: record period were sensitive to the fluctuation of the group &apos; s average daily tce which year-to-year fluctuation during each of the two years ended 31 march 2010 were of about 20 .
+    Translate: 記錄期間，本集團截至二零一零年三月三十一日止兩個年度各年及截至二零一零年三月三十一日止兩個年度各年的平均日均TCE分別約為20。
+    Reference: 所影響，於截至2010年3月31日止兩個年度，本集團的平均日均TCE按年波動分別約為20。
+    --------------------------------------------------------------------------------
+    Source 133: 33 per h share and assuming the over-allotment option is not exercised , we estimate that we will receive net proceeds of approximately hk $ 1,470 .
+    Translate: 33港元並假設超額配股權未獲行使，我們估計將從全球發售獲得所得款項淨額約1,470。
+    Reference: 33港元及假設超額配股權未獲行使，我們估計，我們將於扣除包銷佣金及其他估計開支後自全球發售獲取所得款項淨額約1,470。
+    --------------------------------------------------------------------------------
+    Source 134: cggc is therefore required to comply with the laws , regulations and listing rules applicable to public companies listed on the shanghai stock exchange , including such measures designed to protect the interests of public and minority shareholders .
+    Translate: 因此，葛洲壩股份公司須遵守適用於上交所上市的上市公司的法律、法規及上市規則的規定。
+    Reference: 因此，葛洲壩股份公司須遵守在上海證券交易所上市的公眾公司所適用的法律、規例及上市規則，包括為保障公眾及少數股東權益而設計的該等措施。
+    --------------------------------------------------------------------------------
+    Source 135: the aged analysis of the group &apos; s trade receivables based on certification / invoice dates at the end of each reporting period , which approximated the respective revenue recognition dates are as follows .
+    Translate: 貴集團於各報告期末基於核證╱發票日期的貿易應收款項的賬齡分析如下。
+    Reference: 於各報告期末，貴集團按驗收╱發票日期作出的應收貿易款項之賬齡分析如下。
+    --------------------------------------------------------------------------------
+    Source 136: we have established a number of pharmaceutical joint ventures with leading international pharmaceutical companies and other joint venture partners .
+    Translate: 我們已與國際領先的醫藥公司及其他合資夥伴成立多個合資企業。
+    Reference: 我們與一些國際領先的製藥公司及其他合資夥伴建立了多家醫藥合資企業。
+    --------------------------------------------------------------------------------
+    Source 137: no stamp duty is payable in the cayman islands on transfers of shares of cayman islands companies except those which hold interests in land in the cayman islands .
+    Translate: 開曼群島對開曼群島公司股份轉讓並不徵收印花稅，惟轉讓在開曼群島擁有土地權益的公司的股份除外。
+    Reference: 開曼群島對開曼群島公司股份轉讓並不徵收印花稅，惟轉讓在開曼群島擁有土地權益的公司的股份除外。
+    --------------------------------------------------------------------------------
+    Source 138: close family members of an individual are those family members who may be expected to influence , or be influenced by , that individual in their dealings with the entity .
+    Translate: 與個人關係密切的家庭成員是指與實體交易時預期可能會影響該名個人或受其影響的家庭成員。
+    Reference: 個別人士的近親指預期會於與實體的交易中影響該人士或受其影響的家庭成員。
+    --------------------------------------------------------------------------------
+    Source 139: we strive to provide our patients with the best healthcare available , while adhering to strict ethical standards of medical practice , and treat them with respect , compassion and confidentiality .
+    Translate: 我們致力為病人提供最佳的醫療服務，而堅持嚴格遵守醫療道德標準的道德標準，並嚴緊保密及保密。
+    Reference: 我們致力於向病人提供最佳醫療服務，並秉持醫療實踐的嚴格道德標準，尊重、同情病人並對其病情保密。
+    --------------------------------------------------------------------------------
+    Source 140: and the loan agreements stated specific situations that the banks can demand for repayment , as a general and standard term of the loan agreements with these major commercial banks , such loan agreements contain a general term entitling the banks to demand for repayment at their discretion .
+    Translate: 及貸款協議列明銀行可要求還款的特定情況，例如與該等主要商業銀行訂立的貸款協議的一般及標準條款，該等貸款協議載有一般條款，規定銀行可酌情要求還款。
+    Reference: 及貸款協議訂明銀行可要求我們還款的特別情況，但作為與該等商業銀行之貸款協議的常見標準條款，該等貸款協議亦載有一般條款，訂明銀行可酌情要求我們還款。
+    --------------------------------------------------------------------------------
+    Source 141: if the beneficiary is a hong kong resident enterprise , which directly holds less than 25 % equity interests of the aforesaid enterprise , the tax levied shall be 10 % of the distributed dividends .
+    Translate: 倘受益人為香港居民企業，直接持有上述企業少於25%的股權，則應按所派股息10%的稅率徵收稅項。
+    Reference: 倘受益人為香港居民企業且直接持有上述企業少於25%的股權，則應按所派股息10%的稅率徵收所得稅。
+    --------------------------------------------------------------------------------
+    Source 142: for remaining balances not covered by social insurance scheme , the management assessed the collectability based on historical patterns and data .
+    Translate: 對於不在社會保險計劃的餘下餘額，管理層根據過往的模式及數據評估可收回的可能性。
+    Reference: 關於社保計劃未涵蓋的餘下餘額，管理層乃基於歷史規律及數據就可回收程度進行評估。
+    --------------------------------------------------------------------------------
+    Source 143: the regulation on work safety licenses 《 安全生產許可證條例 》 was promulgated and became effective on january 13 , 2004 .
+    Translate: 《安全生產許可證條例》於二零零四年一月十三日頒佈並施行。
+    Reference: 《安全生產許可證條例》於二零零四年一月十三日頒佈並正式實施。
+    --------------------------------------------------------------------------------
+    Source 144: utility patent is granted and registered upon application unless there are reasons for the patent administrative authority to reject the application after its preliminary review .
+    Translate: 實用新型專利於申請後獲授及登記，除非專利行政部門於初步審查後拒絕受理申請。
+    Reference: 倘實用新型專利申請經初步審查後並無發現駁回理由，則由專利行政部門授予專利並註冊。
+    --------------------------------------------------------------------------------
+    Source 145: the aggregate benefit of incentives is recognised as a reduction of rental expense on a straight-line basis over the lease term .
+    Translate: 優惠總利益以直線法於租賃期間確認為租金開支減少。
+    Reference: 獎勵利益總額於有關租賃期內以直線法確認為租金開支減少。
+    --------------------------------------------------------------------------------
+    Source 146: both the useful life of an asset and its residual value , if any , are reviewed at each balance sheet date .
+    Translate: 資產的可使用年期及其剩餘價值均於各結算日審閱。
+    Reference: 於各結算日檢討資產的可用年期及其殘值。
+    --------------------------------------------------------------------------------
+    Source 147: investors should seek the advice of their stockbroker or other professional adviser for details of the settlement arrangements as such arrangements may affect their rights and interests .
+    Translate: 投資者應就交收安排的詳情諮詢其股票經紀或其他專業顧問的意見，因為該等安排或會影響到其權利及權益。
+    Reference: 投資者應向股票經紀或其他專業顧問諮詢交收安排的詳情，因上述安排可能影響他們的權利及權益。
+    --------------------------------------------------------------------------------
+    Source 148: our long-term objective is to become a leading international apm products and services provider .
+    Translate: 我們的長期目標是成為領先的國際應用性能管理產品及服務供應商。
+    Reference: 我們的長期目標是成為領先的國際應用性能管理產品及服務供應商。
+    --------------------------------------------------------------------------------
+    Source 149: these plans provide equity based or equity related awards to employees of aig and its subsidiaries .
+    Translate: 該等計劃為AIG及其附屬公司的僱員提供股權或股權相關獎勵。
+    Reference: 該等計劃向AIG及其附屬公司僱員提供股本或股本相關獎勵。
+    --------------------------------------------------------------------------------
+
+
+
+```python
+
+```
