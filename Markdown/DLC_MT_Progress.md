@@ -92,7 +92,7 @@ for src, tgt, ref in zip(source, target, reference):
 * *Applied Deep Learning is an iterative process !*
 
 <div id="image-table">
-    <table cellspacing="10">
+    <table style="border: 0px">
         <tr>
             <td style="padding:5px">
                 <img width="400", src="./img/nmt_iterative.png">
@@ -103,7 +103,8 @@ for src, tgt, ref in zip(source, target, reference):
         </tr>
     </table>
 </div>
-<p> **Nerural Machine Translation Development is an iterative process** </p>
+
+<p> Nerural Machine Translation Development is an iterative process </p>
 
 # Some translation examples
 
