@@ -291,15 +291,15 @@ Centre}}{Deep Learning Research \& Application Centre}}\label{deep-learning-rese
 \subsubsection{August 2017}\label{august-2017}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}13}]:} \PY{k}{def} \PY{n+nf}{load\PYZus{}data}\PY{p}{(}\PY{n}{file}\PY{p}{,} \PY{n}{ids}\PY{p}{)}\PY{p}{:}
-             \PY{k}{with} \PY{n+nb}{open}\PY{p}{(}\PY{n}{file}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{k}{as} \PY{n}{f}\PY{p}{:}
-                 \PY{n}{data} \PY{o}{=} \PY{n}{f}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-             \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{ids}\PY{p}{)} \PY{o}{==} \PY{l+m+mi}{2} \PY{o+ow}{and} \PY{n}{ids}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{\PYZlt{}} \PY{n}{ids}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{:}
-                 \PY{k}{return} \PY{n}{data}\PY{p}{[}\PY{n}{ids}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{:}\PY{n}{ids}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}
-             \PY{k}{else}\PY{p}{:}
-                 \PY{c+c1}{\PYZsh{}return [data.split(\PYZsq{}\PYZbs{}n\PYZsq{})[i] for i in ids]}
-                 \PY{k}{return} \PY{p}{[}\PY{n}{e} \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{e} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{data}\PY{p}{)} \PY{k}{if} \PY{n}{i} \PY{o+ow}{in} \PY{n}{ids}\PY{p}{]}
-         \PY{n}{width} \PY{o}{=} \PY{l+m+mi}{80}
+{\color{incolor}In [{\color{incolor}7}]:} \PY{k}{def} \PY{n+nf}{load\PYZus{}data}\PY{p}{(}\PY{n}{file}\PY{p}{,} \PY{n}{ids}\PY{p}{)}\PY{p}{:}
+            \PY{k}{with} \PY{n+nb}{open}\PY{p}{(}\PY{n}{file}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{k}{as} \PY{n}{f}\PY{p}{:}
+                \PY{n}{data} \PY{o}{=} \PY{n}{f}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+            \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{ids}\PY{p}{)} \PY{o}{==} \PY{l+m+mi}{2} \PY{o+ow}{and} \PY{n}{ids}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{\PYZlt{}} \PY{n}{ids}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{:}
+                \PY{k}{return} \PY{n}{data}\PY{p}{[}\PY{n}{ids}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{:}\PY{n}{ids}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}
+            \PY{k}{else}\PY{p}{:}
+                \PY{c+c1}{\PYZsh{}return [data.split(\PYZsq{}\PYZbs{}n\PYZsq{})[i] for i in ids]}
+                \PY{k}{return} \PY{p}{[}\PY{n}{e} \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{e} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{data}\PY{p}{)} \PY{k}{if} \PY{n}{i} \PY{o+ow}{in} \PY{n}{ids}\PY{p}{]}
+        \PY{n}{width} \PY{o}{=} \PY{l+m+mi}{80}
 \end{Verbatim}
 
     \section{Our Goal}\label{our-goal}
@@ -392,46 +392,47 @@ System}\label{neural-machine-translation-system}
   \emph{Applied Deep Learning is an iterative process !}
 \end{itemize}
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}2}]:} \PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k}{import} \PY{n}{Image}\PY{p}{,} \PY{n}{HTML}\PY{p}{,} \PY{n}{display}
-        \PY{k+kn}{from} \PY{n+nn}{glob} \PY{k}{import} \PY{n}{glob}
-        \PY{n}{fig} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{./img/nmt\PYZus{}iterative.png}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{./img/BLEU\PYZus{}2017\PYZus{}8\PYZus{}18.png}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
-        \PY{n}{imagesList}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(} \PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZlt{}img style=}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{width: 400px; margin: 0px; align: center;}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{ src=}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{ /\PYZgt{}}\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n+nb}{str}\PY{p}{(}\PY{n}{s}\PY{p}{)} 
-                             \PY{k}{for} \PY{n}{s} \PY{o+ow}{in} \PY{n}{fig} \PY{p}{]}\PY{p}{)}
-        \PY{n}{display}\PY{p}{(}\PY{n}{HTML}\PY{p}{(}\PY{n}{imagesList}\PY{p}{)}\PY{p}{)}
-\end{Verbatim}
+    \hypertarget{image-table}{}
+\begin{verbatim}
+<table cellspacing="10">
+    <tr>
+        <td style="padding:5px">
+            <img width="400", src="./img/nmt_iterative.png">
+          </td>
+        <td style="padding:5px">
+            <img width="400", src="./img/BLEU_2017_8_18.png">
+         </td>
+    </tr>
+</table>
+\end{verbatim}
 
-    
-    \begin{verbatim}
-<IPython.core.display.HTML object>
-    \end{verbatim}
+\textbf{Nerural Machine Translation Development is an iterative process}
 
-    
     \section{Some translation examples}\label{some-translation-examples}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}30}]:} \PY{n}{g\PYZus{}ids} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{11}\PY{p}{,} \PY{l+m+mi}{502}\PY{p}{,} \PY{l+m+mi}{200}\PY{p}{,} \PY{l+m+mi}{102}\PY{p}{,} \PY{l+m+mi}{208}\PY{p}{,} \PY{l+m+mi}{13}\PY{p}{,} \PY{l+m+mi}{800}\PY{p}{]}
-         \PY{n}{source} \PY{o}{=} \PY{n}{load\PYZus{}data}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{./data/test.src}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{g\PYZus{}ids}\PY{p}{)}
-         \PY{n}{target} \PY{o}{=} \PY{n}{load\PYZus{}data}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{./data/large\PYZus{}test\PYZus{}120000.de}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{g\PYZus{}ids}\PY{p}{)}
-         \PY{n}{reference} \PY{o}{=} \PY{n}{load\PYZus{}data}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{./data/test.trg}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{g\PYZus{}ids}\PY{p}{)}
-         \PY{n}{google} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{本公司於最近實際可行日期無債務證券。}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-         \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{此外，還發布了2009年8月加強施工用地管理和促進利用未經批准使用的通知，重申了現行的閒置用地規定。}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-         \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{該通知必須指明會議的時間和地點，在特殊業務的情況下，該業務的一般性質。}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-         \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{此外，我們不能向你保證，其他人不會通過獨立發展或其他法律手段獲得這些商業秘密的知識。}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-         \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{行使其根據公司章程賦予的其他權利。}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-         \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{截至最近切實可行日期，日本法定股本為億萬股，分為200股。}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-         \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{關於是否行使購買新業務機會的選擇權的決定將由獨立非執行董事作出，以確保該決定適當考慮到獨立股東的利益。}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
-         
-         \PY{n}{len\PYZus{}per\PYZus{}slide} \PY{o}{=} \PY{l+m+mi}{4}
-         \PY{n}{source1} \PY{o}{=} \PY{n}{source}\PY{p}{[}\PY{p}{:}\PY{n}{len\PYZus{}per\PYZus{}slide}\PY{p}{]}
-         \PY{n}{target1} \PY{o}{=} \PY{n}{target}\PY{p}{[}\PY{p}{:}\PY{n}{len\PYZus{}per\PYZus{}slide}\PY{p}{]}
-         \PY{n}{reference1} \PY{o}{=} \PY{n}{reference}\PY{p}{[}\PY{p}{:}\PY{n}{len\PYZus{}per\PYZus{}slide}\PY{p}{]}
-         \PY{n}{google1} \PY{o}{=} \PY{n}{google}\PY{p}{[}\PY{p}{:}\PY{n}{len\PYZus{}per\PYZus{}slide}\PY{p}{]}
-         
-         \PY{c+c1}{\PYZsh{}print(\PYZsq{}\PYZhy{}\PYZsq{}*100)}
-         \PY{k}{for} \PY{n}{src}\PY{p}{,} \PY{n}{tgt}\PY{p}{,} \PY{n}{ref}\PY{p}{,} \PY{n}{gl} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{source1}\PY{p}{,} \PY{n}{target1}\PY{p}{,} \PY{n}{reference1}\PY{p}{,} \PY{n}{google1}\PY{p}{)}\PY{p}{:}
-             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Source   : }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{Translate: }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{Reference: }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{Google   : }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{src}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{@@ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{tgt}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{@@ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{ref}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{@@ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{gl}\PY{p}{)}\PY{p}{)}
-             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{*}\PY{n}{width}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}4}]:} \PY{n}{g\PYZus{}ids} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{11}\PY{p}{,} \PY{l+m+mi}{502}\PY{p}{,} \PY{l+m+mi}{200}\PY{p}{,} \PY{l+m+mi}{102}\PY{p}{,} \PY{l+m+mi}{208}\PY{p}{,} \PY{l+m+mi}{13}\PY{p}{,} \PY{l+m+mi}{800}\PY{p}{]}
+        \PY{n}{source} \PY{o}{=} \PY{n}{load\PYZus{}data}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{./data/test.src}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{g\PYZus{}ids}\PY{p}{)}
+        \PY{n}{target} \PY{o}{=} \PY{n}{load\PYZus{}data}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{./data/large\PYZus{}test\PYZus{}120000.de}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{g\PYZus{}ids}\PY{p}{)}
+        \PY{n}{reference} \PY{o}{=} \PY{n}{load\PYZus{}data}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{./data/test.trg}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{g\PYZus{}ids}\PY{p}{)}
+        \PY{n}{google} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{本公司於最近實際可行日期無債務證券。}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{此外，還發布了2009年8月加強施工用地管理和促進利用未經批准使用的通知，重申了現行的閒置用地規定。}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{該通知必須指明會議的時間和地點，在特殊業務的情況下，該業務的一般性質。}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{此外，我們不能向你保證，其他人不會通過獨立發展或其他法律手段獲得這些商業秘密的知識。}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{行使其根據公司章程賦予的其他權利。}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{截至最近切實可行日期，日本法定股本為億萬股，分為200股。}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{關於是否行使購買新業務機會的選擇權的決定將由獨立非執行董事作出，以確保該決定適當考慮到獨立股東的利益。}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+        
+        \PY{n}{len\PYZus{}per\PYZus{}slide} \PY{o}{=} \PY{l+m+mi}{4}
+        \PY{n}{source1} \PY{o}{=} \PY{n}{source}\PY{p}{[}\PY{p}{:}\PY{n}{len\PYZus{}per\PYZus{}slide}\PY{p}{]}
+        \PY{n}{target1} \PY{o}{=} \PY{n}{target}\PY{p}{[}\PY{p}{:}\PY{n}{len\PYZus{}per\PYZus{}slide}\PY{p}{]}
+        \PY{n}{reference1} \PY{o}{=} \PY{n}{reference}\PY{p}{[}\PY{p}{:}\PY{n}{len\PYZus{}per\PYZus{}slide}\PY{p}{]}
+        \PY{n}{google1} \PY{o}{=} \PY{n}{google}\PY{p}{[}\PY{p}{:}\PY{n}{len\PYZus{}per\PYZus{}slide}\PY{p}{]}
+        
+        \PY{c+c1}{\PYZsh{}print(\PYZsq{}\PYZhy{}\PYZsq{}*100)}
+        \PY{k}{for} \PY{n}{src}\PY{p}{,} \PY{n}{tgt}\PY{p}{,} \PY{n}{ref}\PY{p}{,} \PY{n}{gl} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{source1}\PY{p}{,} \PY{n}{target1}\PY{p}{,} \PY{n}{reference1}\PY{p}{,} \PY{n}{google1}\PY{p}{)}\PY{p}{:}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Source   : }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{Translate: }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{Reference: }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{Google   : }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{src}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{@@ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{tgt}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{@@ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{ref}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{@@ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{gl}\PY{p}{)}\PY{p}{)}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{*}\PY{n}{width}\PY{p}{)}
 \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -439,57 +440,57 @@ Source   : our company has no outstanding convertible debt securities as of the 
 Translate: 截至最後實際可行日期，本公司並無已發行的可換股債務證券。
 Reference: 截至最後實際可行日期，本公司並無任何尚未行使的可換股債務證券。
 Google   : 本公司於最近實際可行日期無債務證券。
-------------------------------------------------------------
+--------------------------------------------------------------------------------
 Source   : furthermore , mlr issued the notice on strengthening administration of construction land and promoting the utilisation of approved land without utilisation in august 2009 , which reiterates the current rules regarding idle land .
 Translate: 此外，國土資源部於二零零九年八月發佈《關於加強建設用地管理有關問題的通知》，通知重申閒置土地的現行規則。
 Reference: 此外，國土資源部於2009年8月發出《關於嚴格建設用地管理促進批而未用土地利用的通知》，重申了對閒置土地的現行規則。
 Google   : 此外，還發布了2009年8月加強施工用地管理和促進利用未經批准使用的通知，重申了現行的閒置用地規定。
-------------------------------------------------------------
+--------------------------------------------------------------------------------
 Source   : the notice must specify the time and place of the meeting and , in the case of special business , the general nature of that business .
 Translate: 通告須註明舉行會議的時間及地點，倘有特別事項，則須註明有關事項的一般性質。
 Reference: 通告須註明舉行會議之時間及地點，倘有特別事項，則須註明有關事項之一般性質。
 Google   : 該通知必須指明會議的時間和地點，在特殊業務的情況下，該業務的一般性質。
-------------------------------------------------------------
+--------------------------------------------------------------------------------
 Source   : in addition , we can not assure you that others will not obtain knowledge of these trade secrets through independent development or other legal means .
 Translate: 此外，我們無法向閣下保證其他人士不會透過獨立發展或其他法律方式取得該等商業機密的認識。
 Reference: 此外，我們無法向閣下保證他人不會透過自主開發或以其他合法途徑獲悉該等商業機密。
 Google   : 此外，我們不能向你保證，其他人不會通過獨立發展或其他法律手段獲得這些商業秘密的知識。
-------------------------------------------------------------
+--------------------------------------------------------------------------------
 
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}28}]:} \PY{n}{source2} \PY{o}{=} \PY{n}{source}\PY{p}{[}\PY{n}{len\PYZus{}per\PYZus{}slide}\PY{p}{:}\PY{p}{]}
-         \PY{n}{target1} \PY{o}{=} \PY{n}{target}\PY{p}{[}\PY{n}{len\PYZus{}per\PYZus{}slide}\PY{p}{:}\PY{p}{]}
-         \PY{n}{reference1} \PY{o}{=} \PY{n}{reference}\PY{p}{[}\PY{n}{len\PYZus{}per\PYZus{}slide}\PY{p}{:}\PY{p}{]}
-         \PY{n}{google1} \PY{o}{=} \PY{n}{google}\PY{p}{[}\PY{p}{:}\PY{n}{len\PYZus{}per\PYZus{}slide}\PY{p}{]}
-         
-         \PY{c+c1}{\PYZsh{}print(\PYZsq{}\PYZhy{}\PYZsq{}*100)}
-         \PY{k}{for} \PY{n}{src}\PY{p}{,} \PY{n}{tgt}\PY{p}{,} \PY{n}{ref}\PY{p}{,} \PY{n}{gl} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{source1}\PY{p}{,} \PY{n}{target1}\PY{p}{,} \PY{n}{reference1}\PY{p}{,} \PY{n}{google1}\PY{p}{)}\PY{p}{:}
-             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Source   : }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{Translate: }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{Reference: }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{Google   : }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{src}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{@@ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{tgt}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{@@ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{ref}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{@@ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{gl}\PY{p}{)}\PY{p}{)}
-             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{*}\PY{n}{width}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}5}]:} \PY{n}{source2} \PY{o}{=} \PY{n}{source}\PY{p}{[}\PY{n}{len\PYZus{}per\PYZus{}slide}\PY{p}{:}\PY{p}{]}
+        \PY{n}{target1} \PY{o}{=} \PY{n}{target}\PY{p}{[}\PY{n}{len\PYZus{}per\PYZus{}slide}\PY{p}{:}\PY{p}{]}
+        \PY{n}{reference1} \PY{o}{=} \PY{n}{reference}\PY{p}{[}\PY{n}{len\PYZus{}per\PYZus{}slide}\PY{p}{:}\PY{p}{]}
+        \PY{n}{google1} \PY{o}{=} \PY{n}{google}\PY{p}{[}\PY{n}{len\PYZus{}per\PYZus{}slide}\PY{p}{:}\PY{p}{]}
+        
+        \PY{c+c1}{\PYZsh{}print(\PYZsq{}\PYZhy{}\PYZsq{}*100)}
+        \PY{k}{for} \PY{n}{src}\PY{p}{,} \PY{n}{tgt}\PY{p}{,} \PY{n}{ref}\PY{p}{,} \PY{n}{gl} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{source1}\PY{p}{,} \PY{n}{target1}\PY{p}{,} \PY{n}{reference1}\PY{p}{,} \PY{n}{google1}\PY{p}{)}\PY{p}{:}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Source   : }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{Translate: }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{Reference: }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{Google   : }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{src}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{@@ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{tgt}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{@@ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{ref}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{@@ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{gl}\PY{p}{)}\PY{p}{)}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{*}\PY{n}{width}\PY{p}{)}
 \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 Source   : our company has no outstanding convertible debt securities as of the latest practicable date .
 Translate: 及行使組織章程細則賦予彼等的其他權利。
 Reference: 及行使組織章程細則賦予彼等的其他權利。
-Google   : 本公司於最近實際可行日期無債務證券。
-------------------------------------------------------------
+Google   : 行使其根據公司章程賦予的其他權利。
+--------------------------------------------------------------------------------
 Source   : furthermore , mlr issued the notice on strengthening administration of construction land and promoting the utilisation of approved land without utilisation in august 2009 , which reiterates the current rules regarding idle land .
 Translate: 於最後實際可行日期，HHGraceJapan的法定股本為10,000,000日圓，分為200股股份。
 Reference: 於最後實際可行日期，HHGraceJapan的法定股本為10,000,000日圓，分為200股股份。
-Google   : 此外，還發布了2009年8月加強施工用地管理和促進利用未經批准使用的通知，重申了現行的閒置用地規定。
-------------------------------------------------------------
+Google   : 截至最近切實可行日期，日本法定股本為億萬股，分為200股。
+--------------------------------------------------------------------------------
 Source   : the notice must specify the time and place of the meeting and , in the case of special business , the general nature of that business .
 Translate: 是否行使選擇權或不能收購新業務機會選擇權將由獨立非執行董事作出，以確保就獨立股東的利益作出適當考慮。
 Reference: 是否行使接納新業務機會選擇權的決定將由獨立非執行董事作出，以確保該決定將充分考慮我們獨立股東的利益。
-Google   : 該通知必須指明會議的時間和地點，在特殊業務的情況下，該業務的一般性質。
-------------------------------------------------------------
+Google   : 關於是否行使購買新業務機會的選擇權的決定將由獨立非執行董事作出，以確保該決定適當考慮到獨立股東的利益。
+--------------------------------------------------------------------------------
 
     \end{Verbatim}
 
-    \section{Some problems}\label{some-problems}
+    \section{Some existing problems}\label{some-existing-problems}
 
 \begin{itemize}
 \tightlist
@@ -569,12 +570,11 @@ our directors will , after taking into consideration the profitability , risks a
   \begin{itemize}
   \tightlist
   \item
-    Annual report from HKEX; Non-IPO documents; difficulty in processing
-    Alpha data; \ldots{}
+    More data: Annual report from HKEX; Non-IPO documents
   \item
-    Clean data
+    Data cleaning, etc
   \item
-    Other advices?
+    Difficulty in processing Alpha data. Advices?
   \end{itemize}
 \item
   Model improvement
@@ -584,17 +584,15 @@ our directors will , after taking into consideration the profitability , risks a
   \item
     New ideas
   \item
-    Tricks
+    Training tricks
   \end{itemize}
 \item
-  Features
+  Interface
 
   \begin{itemize}
   \tightlist
   \item
-    British/American English; Traditioanl/Simplified Chinese
-  \item
-    Tranlation memory
+    Features
   \end{itemize}
 \end{itemize}
 

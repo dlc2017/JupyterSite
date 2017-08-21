@@ -91,19 +91,19 @@ for src, tgt, ref in zip(source, target, reference):
 * **Decode (translate) time**: ~8s/80 sentences (without GPU), ~2s/80 sentences (with GPU)
 * *Applied Deep Learning is an iterative process !*
 
-
-```python
-from IPython.display import Image, HTML, display
-from glob import glob
-fig = ['./img/nmt_iterative.png', './img/BLEU_2017_8_18.png']
-imagesList=''.join( ["<img style='width: 400px; margin: 0px; align: center;' src='%s' />" % str(s) 
-                     for s in fig ])
-display(HTML(imagesList))
-```
-
-
-<img style='width: 400px; margin: 0px; align: center;' src='./img/nmt_iterative.png' /><img style='width: 400px; margin: 0px; align: center;' src='./img/BLEU_2017_8_18.png' />
-
+<div id="image-table">
+    <table cellspacing="10">
+        <tr>
+            <td style="padding:5px">
+                <img width="400", src="./img/nmt_iterative.png">
+              </td>
+            <td style="padding:5px">
+                <img width="400", src="./img/BLEU_2017_8_18.png">
+             </td>
+        </tr>
+    </table>
+</div>
+<p> **Nerural Machine Translation Development is an iterative process** </p>
 
 # Some translation examples
 
@@ -137,22 +137,22 @@ for src, tgt, ref, gl in zip(source1, target1, reference1, google1):
     Translate: 截至最後實際可行日期，本公司並無已發行的可換股債務證券。
     Reference: 截至最後實際可行日期，本公司並無任何尚未行使的可換股債務證券。
     Google   : 本公司於最近實際可行日期無債務證券。
-    ------------------------------------------------------------
+    --------------------------------------------------------------------------------
     Source   : furthermore , mlr issued the notice on strengthening administration of construction land and promoting the utilisation of approved land without utilisation in august 2009 , which reiterates the current rules regarding idle land .
     Translate: 此外，國土資源部於二零零九年八月發佈《關於加強建設用地管理有關問題的通知》，通知重申閒置土地的現行規則。
     Reference: 此外，國土資源部於2009年8月發出《關於嚴格建設用地管理促進批而未用土地利用的通知》，重申了對閒置土地的現行規則。
     Google   : 此外，還發布了2009年8月加強施工用地管理和促進利用未經批准使用的通知，重申了現行的閒置用地規定。
-    ------------------------------------------------------------
+    --------------------------------------------------------------------------------
     Source   : the notice must specify the time and place of the meeting and , in the case of special business , the general nature of that business .
     Translate: 通告須註明舉行會議的時間及地點，倘有特別事項，則須註明有關事項的一般性質。
     Reference: 通告須註明舉行會議之時間及地點，倘有特別事項，則須註明有關事項之一般性質。
     Google   : 該通知必須指明會議的時間和地點，在特殊業務的情況下，該業務的一般性質。
-    ------------------------------------------------------------
+    --------------------------------------------------------------------------------
     Source   : in addition , we can not assure you that others will not obtain knowledge of these trade secrets through independent development or other legal means .
     Translate: 此外，我們無法向閣下保證其他人士不會透過獨立發展或其他法律方式取得該等商業機密的認識。
     Reference: 此外，我們無法向閣下保證他人不會透過自主開發或以其他合法途徑獲悉該等商業機密。
     Google   : 此外，我們不能向你保證，其他人不會通過獨立發展或其他法律手段獲得這些商業秘密的知識。
-    ------------------------------------------------------------
+    --------------------------------------------------------------------------------
 
 
 
@@ -160,7 +160,7 @@ for src, tgt, ref, gl in zip(source1, target1, reference1, google1):
 source2 = source[len_per_slide:]
 target1 = target[len_per_slide:]
 reference1 = reference[len_per_slide:]
-google1 = google[:len_per_slide]
+google1 = google[len_per_slide:]
 
 #print('-'*100)
 for src, tgt, ref, gl in zip(source1, target1, reference1, google1):
@@ -171,21 +171,21 @@ for src, tgt, ref, gl in zip(source1, target1, reference1, google1):
     Source   : our company has no outstanding convertible debt securities as of the latest practicable date .
     Translate: 及行使組織章程細則賦予彼等的其他權利。
     Reference: 及行使組織章程細則賦予彼等的其他權利。
-    Google   : 本公司於最近實際可行日期無債務證券。
-    ------------------------------------------------------------
+    Google   : 行使其根據公司章程賦予的其他權利。
+    --------------------------------------------------------------------------------
     Source   : furthermore , mlr issued the notice on strengthening administration of construction land and promoting the utilisation of approved land without utilisation in august 2009 , which reiterates the current rules regarding idle land .
     Translate: 於最後實際可行日期，HHGraceJapan的法定股本為10,000,000日圓，分為200股股份。
     Reference: 於最後實際可行日期，HHGraceJapan的法定股本為10,000,000日圓，分為200股股份。
-    Google   : 此外，還發布了2009年8月加強施工用地管理和促進利用未經批准使用的通知，重申了現行的閒置用地規定。
-    ------------------------------------------------------------
+    Google   : 截至最近切實可行日期，日本法定股本為億萬股，分為200股。
+    --------------------------------------------------------------------------------
     Source   : the notice must specify the time and place of the meeting and , in the case of special business , the general nature of that business .
     Translate: 是否行使選擇權或不能收購新業務機會選擇權將由獨立非執行董事作出，以確保就獨立股東的利益作出適當考慮。
     Reference: 是否行使接納新業務機會選擇權的決定將由獨立非執行董事作出，以確保該決定將充分考慮我們獨立股東的利益。
-    Google   : 該通知必須指明會議的時間和地點，在特殊業務的情況下，該業務的一般性質。
-    ------------------------------------------------------------
+    Google   : 關於是否行使購買新業務機會的選擇權的決定將由獨立非執行董事作出，以確保該決定適當考慮到獨立股東的利益。
+    --------------------------------------------------------------------------------
 
 
-# Some problems
+# Some existing problems
 * <font color='blue'> Polluted data </font>
     * unwanted symbols
     * unpaired sentences
@@ -239,15 +239,14 @@ for src in source:
 
 # Our plan
 * Data collection & processing
-    * Annual report from HKEX; Non-IPO documents; difficulty in processing Alpha data; ...
-    * Clean data
-    * Other advices?
+    * More data: Annual report from HKEX; Non-IPO documents
+    * Data cleaning, etc
+    * Difficulty in processing Alpha data. Advices?
 * Model improvement
     * New ideas
-    * Tricks
-* Features
-    * British/American English; Traditioanl/Simplified Chinese
-    * Tranlation memory
+    * Training tricks
+* Interface
+    * Features
 
 # More examples
 
